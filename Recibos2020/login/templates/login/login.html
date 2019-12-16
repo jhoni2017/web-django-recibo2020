@@ -1,0 +1,63 @@
+{% extends "core/base.html" %}
+{% block cabecera %}
+
+{% endblock cabecera %}
+
+{% block cuerpo %}
+
+    <div class="container">
+  
+        <div class="row justify-content-center" id="filalogin">
+
+            <div class="col-md-3  text-center  shadow p-3 mb-5 bg-white rounded">
+
+                <form action="" method="POST">
+                    {% csrf_token %}
+
+                    <div class="form-group m-2">
+                        <h3><b>Iniciar Sesión</b></h3>
+                    </div>
+                        
+                    
+                    <div class="form-group m-3">
+
+                        <label for="Usuario">Usuario</label>
+                        <!--<input type="text" class="form-control" id="usuario" aria-describedby="emailHelp"> -->
+                        <div class="input-group ">
+                            {{form.usuario}}
+                        </div>
+                        
+                        {{form.usuario.errors}}
+                        
+                        
+                    </div>
+
+                    <div class="form-group text-center m-3">
+
+                        <label for="contraseña">Contraseña</label>
+                        <!--<input type="password" class="form-control" id="contraseña"> -->
+                        
+                        <div class="input-group ">
+                            {{form.contraseña}}
+                        </div>
+
+                            {{form.contraseña.errors}}
+
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Ingresar</button>
+                </form>
+            
+            </div>
+            
+        </div>
+  
+ 
+    </div>
+
+
+
+    
+
+{% endblock cuerpo %}
+    

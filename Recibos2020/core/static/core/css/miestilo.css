@@ -1,0 +1,65 @@
+
+/*cebecera general*/
+#cabecera{
+    background-color: rgb(3, 70, 3);
+    height: 70px;
+    
+}
+
+/*login*/
+#filalogin{
+    margin-top: 10%;
+    
+}
+
+
+/*home*/
+thead{
+   background-color:  #44B78B;
+   color: white;
+
+}
+#v-pills-tabContent{
+    padding-top: 20px;
+}
+
+/*registar*/
+#headingOne {
+    
+    padding: 0%;
+    background-color:#44B78B;
+}
+
+#headingTwo {
+    
+    padding: 0%;
+    background-color:#44B78B;
+    
+}
+
+#headingThree {
+    
+    padding: 0%;
+    background-color: #44B78B;
+    
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color:  #fff;
+    background-color: #44B78B;
+}
+a{
+    color: rgb(36, 116, 36);
+}
+
+#menu{
+    background-color: rgb(250, 255, 252);
+    padding: 2%;
+}
+
+
+/*generar*/
+
+
+
+

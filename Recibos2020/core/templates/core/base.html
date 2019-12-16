@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Cargando los archivos estaticos -->
+     {% load static  %}
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"  type="text/css" href="{% static 'core/css/bootstrap.min.css' %}" >
+
+    <!-- Propio CSS -->
+    <link rel="stylesheet"  type="text/css" href="{% static 'core/css/miestilo.css' %}" >
+
+    <title>Recibos</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+
+      <div class="row align-items-center" id="cabecera">
+        {% block cabecera %} 
+        {% endblock cabecera %}
+      </div>
+
+      <div class="row">
+        {% block cuerpo %}
+        {% endblock cuerpo %}
+      </div>
+
+      <div class="row">
+        {% block pie %}
+        {% endblock pie %}
+      </div>
+
+    </div>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script type="text/javascript" src="{% static 'core/js/jquery-3.4.1.slim.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'core/js/popper.min.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'core/js/bootstrap.min.js' %}" ></script>
+
+    <!-- mi propio javascript -->
+    <script type="text/javascript" src="{% static 'core/js/propiojs.js' %}" ></script>
+  </body>
+</html>

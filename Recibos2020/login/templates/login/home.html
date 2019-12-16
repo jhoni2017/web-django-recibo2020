@@ -1,0 +1,234 @@
+{% extends "core/base.html" %}
+{% block cabecera %}
+    <div class="col-6 col-sm-8  col-lg-8 ">
+         {% if request.user.is_superuser %}
+            <div class=" row justify-content-start">
+
+                <a href="admin/" class="btn outline-success text-white " >Admin</a>
+            
+            </div>
+         {% endif %}
+        
+        
+    </div>
+   
+    <div class="col-6 col-sm-4  col-lg-2 ">
+        <div class=" row justify-content-end">
+            
+                <a href="#" class="btn font-weight-bold  text-white btn-outline-success border-0" > {{request.user.username }} </a>
+                
+                <a href="{% url 'salir' %}" class="btn font-weight-bold text-white btn-outline-success border-0  " >  Salir  </a>
+
+        </div>
+    </div>
+
+{% endblock cabecera %}
+
+{% block cuerpo %}
+   
+    <div class="container">
+        
+        <div class="row">
+
+            <div class="col-12 col-sm-3 " id="menu">
+
+                <div class="nav flex-column nav-pills text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+
+                    <a class="nav-link active " id="v-pills-home-tab" data-toggle="pill" href="#agua" role="tab" aria-controls="v-pills-home" aria-selected="true"><b>Agua</b></a>
+                    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#luz" role="tab" aria-controls="v-pills-profile" aria-selected="false"><b>Luz</b></a>
+                    <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#cuarto" role="tab" aria-controls="v-pills-messages" aria-selected="false"><b>Cuarto</b></a>
+                    
+                </div>
+
+            </div>
+
+            <div class="col-12 col-sm-9 ">
+
+                <div class="tab-content" id="v-pills-tabContent">
+
+                    <div class="tab-pane fade show active" id="agua" role="tabpanel" aria-labelledby="v-pills-home-tab">
+
+                        <table class="table table-md-responsive table-hover table-bordered text-center ">
+
+                            <thead class="thead">
+                                <tr>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Código</th>
+                                    <th scope="col">Monto ( S/ )</th>
+                                    <th scope="col">Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for a in gpa %}
+                                    {% if a.Estado %}
+                                        <tr class="text-success">
+                                            <td >{{a.Fecha}}</td>
+                                                <td>{{a.Servicio}}</td>
+                                                <td>{{a.MontoUsuario}}</td>
+                                                <th>
+                                                    {% if a.Estado %}
+                                                        <p class="text-success">Cancelado</p>
+                                                    {% else %}
+                                                        <p class="text-danger">Pendiente</p>
+                                            
+                                                    {% endif %}
+
+                                                </th>
+
+                                        </tr>
+                                    {% else %}
+                                    <tr class="text-danger">
+                                            <td >{{a.Fecha}}</td>
+                                                <td>{{a.Servicio}}</td>
+                                                <td>{{a.MontoUsuario}}</td>
+                                                <th>
+                                                    {% if a.Estado %}
+                                                        <p class="text-success">Cancelado</p>
+                                                    {% else %}
+                                                        <p class="text-danger">Pendiente</p>
+                                            
+                                                    {% endif %}
+
+                                                </th>
+  
+                                        </tr>
+
+                                    {% endif %}
+
+                                
+                                {% endfor %}
+                               
+ 
+                            </tbody>
+                            
+                        </table>
+
+                    </div>
+
+                    <div class="tab-pane fade" id="luz" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+
+                        <table class="table table-md-responsive table-hover table-bordered text-center ">
+
+                            <thead class="thead">
+                                <tr>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Código</th>
+                                    <th scope="col">Monto ( S/ )</th>
+                                    <th scope="col">Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for l in gpl %}
+                                    {% if l.Estado %}
+                                        <tr class="text-success">
+                                            <td >{{l.Fecha}}</td>
+                                                <td>{{l.Servicio}}</td>
+                                                <td>{{l.MontoUsuario}}</td>
+                                                <th>
+                                                    {% if l.Estado %}
+                                                        <p class="text-success">Cancelado</p>
+                                                    {% else %}
+                                                        <p class="text-danger">Pendiente </p>
+                                            
+                                                    {% endif %}
+
+                                                </th>
+
+                                        </tr>
+                                    {% else %}
+                                    <tr class="text-danger">
+                                            <td >{{l.Fecha}}</td>
+                                                <td>{{l.Servicio}}</td>
+                                                <td>{{l.MontoUsuario}}</td>
+                                                <th>
+                                                    {% if l.Estado %}
+                                                        <p class="text-success">Cancelado</p>
+                                                    {% else %}
+                                                        <p class="text-danger">Pendiente</p>
+                                            
+                                                    {% endif %}
+
+                                                </th>
+  
+                                        </tr>
+
+                                    {% endif %}
+
+                                
+                                {% endfor %}
+                               
+ 
+                            </tbody>
+                            
+                        </table>
+
+                    </div>
+
+                    <div class="tab-pane fade" id="cuarto" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+
+                        <table class="table table-md-responsive table-hover table-bordered text-center ">
+
+                            <thead class="thead">
+                                <tr>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">N° Cuarto</th>
+                                    <th scope="col">Monto ( S/ )</th>
+                                    <th scope="col">Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for c in gpc %}
+                                    {% if c.Estado %}
+                                        <tr class="text-success">
+                                            <td >{{c.Fecha}}</td>
+                                                <td>{{c.Servicio}}</td>
+                                                <td>{{c.MontoUsuario}}</td>
+                                                <th>
+                                                    {% if c.Estado %}
+                                                        <p class="text-success">Cancelado</p>
+                                                    {% else %}
+                                                        <p class="text-danger">Pendiente</p>
+                                            
+                                                    {% endif %}
+
+                                                </th>
+
+                                        </tr>
+                                    {% else %}
+                                    <tr class="text-danger">
+                                            <td >{{c.Fecha}}</td>
+                                                <td>{{c.Servicio}}</td>
+                                                <td>{{c.MontoUsuario}}</td>
+                                                <th>
+                                                    {% if c.Estado %}
+                                                        <p class="text-success">Cancelado</p>
+                                                    {% else %}
+                                                        <p class="text-danger">Pendiente</p>
+                                            
+                                                    {% endif %}
+
+                                                </th>
+  
+                                        </tr>
+
+                                    {% endif %}
+
+                                
+                                {% endfor %}
+                               
+ 
+                            </tbody>
+                            
+                        </table>
+
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+{% endblock cuerpo %}
